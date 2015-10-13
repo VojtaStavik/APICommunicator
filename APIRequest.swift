@@ -21,7 +21,7 @@ public extension Array where Element : NSOperation
         
         for operation in self
         {
-            mainNetworkQueue.addOperation(operation)
+            NSOperationQueue.mainAPIQeueue.addOperation(operation)
         }
         
         return self
