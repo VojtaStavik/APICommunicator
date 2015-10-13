@@ -40,7 +40,7 @@ public extension Array where Element : NSOperation
                                             } as! Element
         
         
-        let activityFinishedOperation : NSOperation = NSBlockOperation()
+        let activityFinishedOperation  = NSBlockOperation()
                                             {
                                                 var errors = [APICommunicatorError]()
                                                 
