@@ -8,6 +8,7 @@
 import Foundation
 import SwiftyJSON
 import CoreData
+import SwiftTweaks
 
 
 public enum HTTPMethod : CustomStringConvertible {
