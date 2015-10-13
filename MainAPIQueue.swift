@@ -7,3 +7,8 @@
 //
 
 import Foundation
+
+public struct MainAPIQueue {
+    
+    public static var queue: NSOperationQueue? = nil
+}
