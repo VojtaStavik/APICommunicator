@@ -14,9 +14,9 @@ public protocol APICallsFactory : APICommunicator {
 }
 
 
-extension APICallsFactory {
+public extension APICallsFactory {
     
-    func newOperation(path: String, method: HTTPMethod, paramEncoding: ParamEncoding? = nil) -> APIRequestOperation
+    public func newOperation(path: String, method: HTTPMethod, paramEncoding: ParamEncoding? = nil) -> APIRequestOperation
     {
         let operation = APIRequestOperation(communicator: self, path: path, method: method, paramEncoding: paramEncoding ?? .JSON) // FIXME: Proper encoding
         
@@ -27,7 +27,7 @@ extension APICallsFactory {
     }
     
     
-    func newOperation(customExecClosure : APICommunicatorCustomCallClosure) -> APIRequestOperation
+    public func newOperation(customExecClosure : APICommunicatorCustomCallClosure) -> APIRequestOperation
     {
         let operation = APIRequestOperation(communicator: self, communicatorExecClosure: customExecClosure)
         
@@ -39,7 +39,7 @@ extension APICallsFactory {
 
     
     
-    func addPredefinedHeaders(operation: APIRequestOperation) -> APIRequestOperation {
+    public func addPredefinedHeaders(operation: APIRequestOperation) -> APIRequestOperation {
         
         if let predefinedHeaders = predefinedHeaders {
             
@@ -56,7 +56,7 @@ extension APICallsFactory {
     }
     
     
-    func addPredefinedParameters(operation: APIRequestOperation) -> APIRequestOperation {
+    public func addPredefinedParameters(operation: APIRequestOperation) -> APIRequestOperation {
         
         if let predefinedParameters = predefinedParameters {
             
@@ -74,10 +74,10 @@ extension APICallsFactory {
 }
 
 
-extension APIRequestOperation
+public extension APIRequestOperation
 {
     
-    func with(parameters parameters: [String: AnyObject]) -> APIRequestOperation {
+    public func with(parameters parameters: [String: AnyObject]) -> APIRequestOperation {
         
         self.parameters = self.parameters ?? [String:AnyObject]()
         
@@ -90,7 +90,7 @@ extension APIRequestOperation
     }
     
     
-    func with(headers headers: [String: String]) -> APIRequestOperation {
+    public func with(headers headers: [String: String]) -> APIRequestOperation {
         
         self.headers = self.headers ?? [String:String]()
         
