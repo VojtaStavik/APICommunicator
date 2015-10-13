@@ -21,7 +21,14 @@ public extension Array where Element : NSOperation
         
         for operation in self
         {
-            NSOperationQueue.mainAPIQeueue.addOperation(operation)
+            if let queue = MainAPIQueue.queue {
+             
+                queue.addOperation(operation)
+
+            } else {
+                
+                print("APICommunicator: WARNING! MainAPIQueue.queue is nil.")
+            }
         }
         
         return self
